@@ -8,7 +8,7 @@
     <ProjectGuid>{F9A0ACF5-BB0C-42C0-BD83-55D52460FB3B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CatapultGame.XNA.Library</RootNamespace>
+    <RootNamespace>WindowsGame</RootNamespace>
     <AssemblyName>CatapultGame.XNA.Library</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -57,6 +57,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\AnGame.cs" />
+    <Compile Include="Common\MyGame.cs" />
+    <Compile Include="Common\TheGame\GameFactory.cs" />
+    <Compile Include="Common\TheGame\GameManager.cs" />
+    <Compile Include="Master\Engine.cs" />
+    <Compile Include="Master\Implementation\RealFileProxy.cs" />
+    <Compile Include="Master\Implementation\RealLogger.cs" />
+    <Compile Include="Master\Implementation\TestLogger.cs" />
+    <Compile Include="Master\Interfaces\IFileManager.cs" />
+    <Compile Include="Master\Interfaces\IFileProxy.cs" />
+    <Compile Include="Master\Interfaces\ILogger.cs" />
+    <Compile Include="Master\IoC\EngineModule.cs" />
+    <Compile Include="Master\IoC\IoCContainer.cs" />
+    <Compile Include="Master\Managers\FileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

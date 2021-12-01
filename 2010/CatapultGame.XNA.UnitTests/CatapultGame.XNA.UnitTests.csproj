@@ -8,7 +8,7 @@
     <ProjectGuid>{DBA02B15-1A9A-4D8B-A5E5-F585E9F16AA4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CatapultGame.XNA.UnitTests</RootNamespace>
+    <RootNamespace>WindowsGame.UnitTests</RootNamespace>
     <AssemblyName>CatapultGame.XNA.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

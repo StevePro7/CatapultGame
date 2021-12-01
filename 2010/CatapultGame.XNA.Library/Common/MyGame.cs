@@ -15,26 +15,28 @@ namespace WindowsGame.Common
 
 		public static void Initialize()
 		{
-			//Manager.Logger.Initialize();
-			//Manager.RandomManager.Initialize();
+			Manager.Logger.Initialize();
+			Manager.RandomManager.Initialize();
 
-			//Manager.ConfigManager.Initialize();
-			//Manager.ConfigManager.LoadContent();
+			Manager.ConfigManager.Initialize();
+			Manager.ConfigManager.LoadContent();
 
-			//Manager.ContentManager.Initialize();
-			//Manager.ContentManager.LoadContentSplash();
+			Manager.ContentManager.Initialize();
+			Manager.ContentManager.LoadContentSplash();
 
-			//Manager.DeviceManager.Initialize();
+			Manager.DeviceManager.Initialize();
 			//Manager.ImageManager.Initialize();
-			//Manager.InputManager.Initialize();
+			Manager.InputManager.Initialize();
 			//Manager.QuestionManager.Initialize();
-			//Manager.ScoreManager.Initialize();
+			Manager.ScoreManager.Initialize();
 
-			//Manager.ResolutionManager.Initialize();
-			//Manager.ScreenManager.Initialize();
-			//Manager.SoundManager.Initialize();
-			//Manager.SpriteManager.Initialize();
-			//Manager.StorageManager.Initialize();
+			Manager.ResolutionManager.Initialize();
+			Manager.ScreenManager.Initialize();
+			Manager.SoundManager.Initialize();
+			Manager.SpriteManager.Initialize();
+			Manager.StorageManager.Initialize();
+
+			Manager.TextManager.Initialize();
 			//Manager.ThreadManager.Initialize();
 		}
 

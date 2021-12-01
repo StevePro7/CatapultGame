@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GlobalConfigData>
+	<ScreenType>Test</ScreenType>
+	<SplashDelay>0</SplashDelay>
+	<TitleDelay>800</TitleDelay>
+	<OptionDelay>2000</OptionDelay>
+	<ReadyDelay>7500</ReadyDelay>
+	<DotsDelay>1000</DotsDelay>
+	<OverDelay>3000</OverDelay>
+	<PlayDelay>15000</PlayDelay>
+	<BlankSplash>true</BlankSplash>
+	<FlashTitle>true</FlashTitle>
+	<PlayMusic>true</PlayMusic>
+	<PlaySound>true</PlaySound>
+	<CheatMode>false</CheatMode>
+	<RandomQuestions>true</RandomQuestions>
+	<RandomAnswers>true</RandomAnswers>
+	<QuitsToExit>true</QuitsToExit>
+</GlobalConfigData>

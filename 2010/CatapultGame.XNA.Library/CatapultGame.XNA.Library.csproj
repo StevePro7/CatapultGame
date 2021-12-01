@@ -88,6 +88,7 @@
     <Compile Include="Common\Objects\Question.cs" />
     <Compile Include="Common\Objects\TextData.cs" />
     <Compile Include="Common\Screens\BaseScreen.cs" />
+    <Compile Include="Common\Screens\InitScreen.cs" />
     <Compile Include="Common\Screens\SplashScreen.cs" />
     <Compile Include="Common\Static\Assets.cs" />
     <Compile Include="Common\Static\Constants.cs" />

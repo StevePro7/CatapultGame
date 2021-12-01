@@ -23,29 +23,29 @@ namespace WindowsGame.Common.Screens
 			join = false;
 		}
 
-		public override void LoadContent()
-		{
-			base.LoadContent();
-			MyGame.Manager.ThreadManager.LoadContentAsync();
-		}
+		//public override void LoadContent()
+		//{
+		//    base.LoadContent();
+		//    MyGame.Manager.ThreadManager.LoadContentAsync();
+		//}
 
 		public ScreenType Update(GameTime gameTime)
 		{
 			UpdateTimer(gameTime);
 
 			// Do not attempt to progress until join.
-			join = MyGame.Manager.ThreadManager.Join(1);
-			if (!join)
-			{
-				return ScreenType.Init;
-			}
+			//join = MyGame.Manager.ThreadManager.Join(1);
+			//if (!join)
+			//{
+			//    return ScreenType.Init;
+			//}
 
 			if (Timer > splashDelay)
 			{
 				return nextScreen;
 			}
 
-			Boolean fullScreen = MyGame.Manager.InputManager.FullScreen();
+			Boolean fullScreen = false;//MyGame.Manager.InputManager.FullScreen();
 			Boolean advance = false;
 #if WINDOWS
 			advance = MyGame.Manager.InputManager.Advance();

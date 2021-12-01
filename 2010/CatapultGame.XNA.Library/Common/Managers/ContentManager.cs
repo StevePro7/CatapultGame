@@ -41,7 +41,14 @@ namespace WindowsGame.Common.Managers
 			Assets.EmulogicFont = Engine.Content.Load<SpriteFont>(fonts + FONT_NAME);
 
 			// Textures.
-			//Assets.SpritesheetTexture = LoadTexture(SPRITE_NAME);
+			Assets.armTexture = LoadTexture("arm");
+			Assets.body_backTexture = LoadTexture("body_back");
+			Assets.body_frontTexture = LoadTexture("body_front");
+			Assets.groundTexture = LoadTexture("ground");
+			Assets.logTexture = LoadTexture("log");
+			Assets.pumpkinTexture = LoadTexture("pumpkin");
+			Assets.pumpkinsmashTexture = LoadTexture("pumpkinsmash");
+			Assets.skyTexture = LoadTexture("sky");
 
 			// Songs.
 			Assets.TitleMusicSong = Engine.Content.Load<Song>(soundRoot + TITLE_MUSIC_NAME);

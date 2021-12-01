@@ -26,10 +26,14 @@
 
 	public enum SoundEffectType
 	{
-		Right,
-		Wrong,
-		Cheat,
-		Early
+		countdown_expire,
+		engine_1,
+		engine_2,
+		explosion1,
+		hyperspace_activate,
+		menu_select,
+		pdp3_fire,
+		weapon_pickup_alt,
 	}
 
 	public enum SpriteType

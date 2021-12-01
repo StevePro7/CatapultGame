@@ -13,7 +13,7 @@ namespace WindowsGame.Common.Static
 		public const String TEXTS_DIRECTORY = "Texts";
 
 		public const String FONTS_DIRECTORY = "Fonts";
-		public const String SOUND_DIRECTORY = "Sound";
+		public const String SOUND_DIRECTORY = "Sounds";
 		public const String TEXTURES_DIRECTORY = "Textures";
 
 		public const String GLOBAL_CONFIG_FILENAME = "GlobalConfig.xml";

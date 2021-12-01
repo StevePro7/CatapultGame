@@ -11,15 +11,15 @@ namespace WindowsGame.Common.Managers
 		void Initialize();
 
 		void PlayTitleMusic();
-		void PlayGameOver();
+		//void PlayGameOver();
 		void StopMusic();
 		void PauseMusic();
 		void ResumeMusic();
 
-		void PlayRightSoundEffect();
-		void PlayWrongSoundEffect();
-		void PlayCheatSoundEffect();
-		void PlayEarlySoundEffect();
+		//void PlayRightSoundEffect();
+		//void PlayWrongSoundEffect();
+		//void PlayCheatSoundEffect();
+		//void PlayEarlySoundEffect();
 
 		void AlternateSound();
 		void DrawVolumeIcon();
@@ -40,10 +40,10 @@ namespace WindowsGame.Common.Managers
 			PlaySong(Assets.TitleMusicSong, false);
 		}
 
-		public void PlayGameOver()
-		{
-			PlaySong(Assets.GameOverSong, false);
-		}
+		//public void PlayGameOver()
+		//{
+		//    PlaySong(Assets.GameOverSong, false);
+		//}
 
 		public void StopMusic()
 		{
@@ -69,22 +69,22 @@ namespace WindowsGame.Common.Managers
 			}
 		}
 
-		public void PlayRightSoundEffect()
-		{
-			PlaySoundEffect(SoundEffectType.Right);
-		}
-		public void PlayWrongSoundEffect()
-		{
-			PlaySoundEffect(SoundEffectType.Wrong);
-		}
-		public void PlayCheatSoundEffect()
-		{
-			PlaySoundEffect(SoundEffectType.Cheat);
-		}
-		public void PlayEarlySoundEffect()
-		{
-			PlaySoundEffect(SoundEffectType.Early);
-		}
+		//public void PlayRightSoundEffect()
+		//{
+		//    PlaySoundEffect(SoundEffectType.Right);
+		//}
+		//public void PlayWrongSoundEffect()
+		//{
+		//    PlaySoundEffect(SoundEffectType.Wrong);
+		//}
+		//public void PlayCheatSoundEffect()
+		//{
+		//    PlaySoundEffect(SoundEffectType.Cheat);
+		//}
+		//public void PlayEarlySoundEffect()
+		//{
+		//    PlaySoundEffect(SoundEffectType.Early);
+		//}
 
 		public void AlternateSound()
 		{

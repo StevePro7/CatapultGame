@@ -34,50 +34,9 @@ namespace WindowsGame.Common.Screens
 		}
 
 		//Title.
-		//public override void Draw()
-		//{
-		//    Engine.GraphicsDevice.SetRenderTarget(renderTarget);
-		//    Engine.GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.B, 1, 0);
-
-		//    // Draw
-		//    MyGame.Manager.ImageManager.DrawTitle();
-		//    // Draw
-
-		//    Engine.GraphicsDevice.SetRenderTarget(null);
-		//    //Texture2D resolvedTexture = renderTarget.GetTexture();
-		//    Texture2D resolvedTexture = (Texture2D)renderTarget;
-		//    //resolvedTexture.Save("00.jpg", ImageFileFormat.Jpg);
-		//    var file = "Images/title.jpg";
-		//    Stream stream = File.Create(file);
-		//    resolvedTexture.SaveAsJpeg(stream, width, height);
-
-		//    Engine.Game.Exit();
-		//}
-
-		//Actor.
 		public override void Draw()
 		{
-			//for (Byte index = 0; index < Constants.NUMBER_CHARACTERS; index++)
-			for (Byte index = 0; index < 1; index++)
-			{
-				Engine.GraphicsDevice.SetRenderTarget(renderTarget);
-				Engine.GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.Black, 1, 0);
-
-				// Draw
-				MyGame.Manager.ImageManager.DrawHeader();
-				MyGame.Manager.ImageManager.DrawActor(index);
-				// Draw
-
-				Engine.GraphicsDevice.SetRenderTarget(null);
-				//Texture2D resolvedTexture = renderTarget.GetTexture();
-				Texture2D resolvedTexture = (Texture2D)renderTarget;
-				//resolvedTexture.Save("00.jpg", ImageFileFormat.Jpg);
-				var file = "Images/" + index + ".jpg";
-				Stream stream = File.Create(file);
-				resolvedTexture.SaveAsJpeg(stream, width, height);
-			}
-
-			Engine.Game.Exit();
+			Engine.SpriteBatch.Draw(Assets.SplashTexture, BannerPosition, Color.White);
 		}
 
 	}

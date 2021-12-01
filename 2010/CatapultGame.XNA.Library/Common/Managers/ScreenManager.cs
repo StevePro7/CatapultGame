@@ -50,7 +50,7 @@ namespace WindowsGame.Common.Managers
 			{
 				currScreen = nextScreen;
 				screens[currScreen].LoadContent();
-				color = GetColor();
+				//color = GetColor();
 			}
 
 			nextScreen = screens[currScreen].Update(gameTime);
@@ -76,7 +76,7 @@ namespace WindowsGame.Common.Managers
 			return new Dictionary<ScreenType, IScreen>
 			{
 				{ScreenType.Splash, new SplashScreen()},
-				//{ScreenType.Init, new InitScreen()},
+				{ScreenType.Init, new InitScreen()},
 				//{ScreenType.Title, new TitleScreen()},
 				//{ScreenType.Diff, new DiffScreen()},
 				//{ScreenType.Long, new LongScreen()},
@@ -86,7 +86,7 @@ namespace WindowsGame.Common.Managers
 				//{ScreenType.Score, new ScoreScreen()},
 				//{ScreenType.Over, new OverScreen()},
 				//{ScreenType.Exit, new ExitScreen()},
-				//{ScreenType.Test, new TestScreen()},
+				{ScreenType.Test, new TestScreen()},
 			};
 		}
 

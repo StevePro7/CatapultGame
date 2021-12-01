@@ -41,15 +41,15 @@ namespace WindowsGame.Common.Managers
 			Assets.EmulogicFont = Engine.Content.Load<SpriteFont>(fonts + FONT_NAME);
 
 			// Textures.
-			Assets.SpritesheetTexture = LoadTexture(SPRITE_NAME);
+			//Assets.SpritesheetTexture = LoadTexture(SPRITE_NAME);
 
 			// Songs.
 			Assets.TitleMusicSong = Engine.Content.Load<Song>(soundRoot + TITLE_MUSIC_NAME);
-			Assets.GameOverSong = Engine.Content.Load<Song>(soundRoot + GAME_OVER_NAME);
+			//Assets.GameOverSong = Engine.Content.Load<Song>(soundRoot + GAME_OVER_NAME);
 
 			// Sound effects.
 			Assets.SoundEffectDictionary = new Dictionary<SoundEffectType, SoundEffectInstance>();
-			for (SoundEffectType key = SoundEffectType.Right; key <= SoundEffectType.Early; ++key)
+			for (SoundEffectType key = SoundEffectType.countdown_expire; key <= SoundEffectType.weapon_pickup_alt; ++key)
 			{
 				SoundEffectInstance value = LoadSoundEffectInstance(key.ToString());
 				Assets.SoundEffectDictionary.Add(key, value);
@@ -71,11 +71,11 @@ namespace WindowsGame.Common.Managers
 		}
 
 		// Helper variables for hard coded names.
-		private const String FONT_NAME = "Emulogic";
+		private const String FONT_NAME = "TahomaFont";
 		private const String SPLASH_NAME = "StevePro";
 		//private const String SPLASH_NAME = "Splash";		// TODO change
-		private const String SPRITE_NAME = "Spritesheet";
-		private const String TITLE_MUSIC_NAME = "TitleMusic";
+		//private const String SPRITE_NAME = "Spritesheet";
+		private const String TITLE_MUSIC_NAME = "GameMusic2";
 		private const String GAME_OVER_NAME = "GameOver";
 	}
 }

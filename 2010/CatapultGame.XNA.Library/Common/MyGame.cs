@@ -1,4 +1,5 @@
 ﻿using System;
+using WindowsGame.Common.Static;
 using Microsoft.Xna.Framework;
 //using WindowsGame.Common.Static;
 using WindowsGame.Common.TheGame;
@@ -42,10 +43,19 @@ namespace WindowsGame.Common
 
 		public static void LoadContent()
 		{
-			//Engine.Game.IsFixedTimeStep = Constants.IsFixedTimeStep;
-			//Engine.Game.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / Constants.FramesPerSecond);
-			//Engine.Game.IsMouseVisible = Constants.IsMouseVisible;
-			//Manager.ResolutionManager.LoadContent(Constants.IsFullScreen, Constants.ScreenWide, Constants.ScreenHigh, Constants.UseExposed, Constants.ExposeWide, Constants.ExposeHigh);
+			Engine.Game.IsFixedTimeStep = Constants.IsFixedTimeStep;
+			Engine.Game.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / Constants.FramesPerSecond);
+			Engine.Game.IsMouseVisible = Constants.IsMouseVisible;
+			Manager.ResolutionManager.LoadContent(Constants.IsFullScreen, Constants.ScreenWide, Constants.ScreenHigh, Constants.UseExposed, Constants.ExposeWide, Constants.ExposeHigh);
+
+			//Manager.CollisionManager.LoadContent();
+			Manager.ContentManager.LoadContent();
+			//Manager.ImageManager.LoadContent();
+
+			//Manager.QuestionManager.LoadContent();
+			Manager.ScoreManager.LoadContent();
+			Manager.ScreenManager.LoadContent();
+			Manager.StorageManager.LoadContent();
 		}
 
 		public static void LoadContentAsync()
@@ -71,26 +81,26 @@ namespace WindowsGame.Common
 
 		public static void Update(GameTime gameTime)
 		{
-//            Manager.InputManager.Update(gameTime);
+            Manager.InputManager.Update(gameTime);
 
-//#if WINDOWS
-//            if (Manager.ConfigManager.GlobalConfigData.QuitsToExit)
-//            {
-//                Boolean escape = Manager.InputManager.Escape();
-//                if (escape)
-//                {
-//                    Engine.Game.Exit();
-//                    return;
-//                }
-//            }
-//#endif
+#if WINDOWS
+			if (Manager.ConfigManager.GlobalConfigData.QuitsToExit)
+			{
+				Boolean escape = Manager.InputManager.Escape();
+				if (escape)
+				{
+					Engine.Game.Exit();
+					return;
+				}
+			}
+#endif
 
-//            Manager.ScreenManager.Update(gameTime);
+			Manager.ScreenManager.Update(gameTime);
         }
 
 		public static void Draw()
 		{
-			//Manager.ScreenManager.Draw();
+			Manager.ScreenManager.Draw();
 		}
 
 		public static void OnActivated()

@@ -1,4 +1,4 @@
-﻿#if WINDOWS
+﻿//#if WINDOWS
 using log4net;
 using log4net.Config;
 using WindowsGame.Master.Interfaces;
@@ -37,4 +37,4 @@ namespace WindowsGame.Master.Implementation
 
 	}
 }
-#endif
+//#endif

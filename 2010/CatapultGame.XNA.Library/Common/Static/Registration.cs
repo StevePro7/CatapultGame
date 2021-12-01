@@ -1,4 +1,7 @@
-﻿using WindowsGame.Common.Inputs.Types;
+﻿using WindowsGame.Common.Devices;
+using WindowsGame.Common.Inputs;
+using WindowsGame.Common.Inputs.Types;
+using WindowsGame.Common.Interfaces;
 using WindowsGame.Common.Managers;
 using WindowsGame.Common.TheGame;
 using WindowsGame.Master.Implementation;
@@ -39,6 +42,10 @@ namespace WindowsGame.Common.Static
 
 			IoCContainer.Initialize<IFileProxy, RealFileProxy>();
 			IoCContainer.Initialize<IFileManager, FileManager>();
+
+			IoCContainer.Initialize<IDeviceFactory, WindowsDeviceFactory>();
+			IoCContainer.Initialize<IInputFactory, WindowsInputFactory>();
+			//IoCContainer.Initialize<ILogger, RealLogger>();
 		}
 	}
 }

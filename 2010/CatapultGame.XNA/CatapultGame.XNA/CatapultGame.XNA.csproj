@@ -83,6 +83,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CatapultGame.XNA.Library\CatapultGame.XNA.Library.csproj">
+      <Project>{F9A0ACF5-BB0C-42C0-BD83-55D52460FB3B}</Project>
+      <Name>CatapultGame.XNA.Library</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CatapultGame.XNAContent\CatapultGame.XNAContent.contentproj">
       <Name>CatapultGame.XNAContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>

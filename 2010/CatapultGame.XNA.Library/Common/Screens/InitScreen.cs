@@ -56,7 +56,7 @@ namespace WindowsGame.Common.Screens
 
 		public override void Draw()
 		{
-			Engine.SpriteBatch.Draw(Assets.SplashTexture, BannerPosition, Color.White);
+			//Engine.SpriteBatch.Draw(Assets.SplashTexture, BannerPosition, Color.White);
 		}
 
 		private static ScreenType GetNextScreen()

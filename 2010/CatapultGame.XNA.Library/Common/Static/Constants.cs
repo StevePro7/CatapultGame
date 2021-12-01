@@ -67,6 +67,7 @@ namespace WindowsGame.Common.Static
 		public const Byte GameOffsetX = 80;
 #endif
 #if WINDOWS && !MOBILE
+		public const UInt16 screenWidth = 1280;
 		public const UInt16 ScreenWide = 1280;
 		public const UInt16 ScreenHigh = 720;
 

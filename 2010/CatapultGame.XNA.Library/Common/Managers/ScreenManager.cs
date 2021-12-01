@@ -28,7 +28,7 @@ namespace WindowsGame.Common.Managers
 			screens = GetScreens();
 			screens[ScreenType.Splash].Initialize();
 			screens[ScreenType.Init].Initialize();
-			color = Color.Black;
+			color = Color.CornflowerBlue;
 		}
 
 		public void LoadContent()
@@ -58,10 +58,11 @@ namespace WindowsGame.Common.Managers
 
 		public void Draw()
 		{
-			MyGame.Manager.ResolutionManager.BeginDraw(color);
-			Engine.SpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, MyGame.Manager.ResolutionManager.TransformationMatrix);
+			Engine.GraphicsDevice.Clear(color);
+			//MyGame.Manager.ResolutionManager.BeginDraw(color);
+			//Engine.SpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, MyGame.Manager.ResolutionManager.TransformationMatrix);
 			screens[currScreen].Draw();
-			Engine.SpriteBatch.End();
+			//Engine.SpriteBatch.End();
 		}
 
 		private Color GetColor()

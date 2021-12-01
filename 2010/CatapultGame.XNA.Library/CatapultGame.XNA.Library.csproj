@@ -58,7 +58,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\AnGame.cs" />
+    <Compile Include="Common\Data\BaseData.cs" />
+    <Compile Include="Common\Data\GlobalConfigData.cs" />
+    <Compile Include="Common\Data\StoragePersistData.cs" />
+    <Compile Include="Common\Inputs\BaseInputFactory.cs" />
+    <Compile Include="Common\Inputs\Types\JoystickInput.cs" />
+    <Compile Include="Common\Inputs\Types\KeyboardInput.cs" />
+    <Compile Include="Common\Inputs\Types\MouseScreenInput.cs" />
+    <Compile Include="Common\Inputs\WindowsInputFactory.cs" />
+    <Compile Include="Common\Interfaces\IDeviceFactory.cs" />
+    <Compile Include="Common\Interfaces\IInputFactory.cs" />
+    <Compile Include="Common\Interfaces\IScreen.cs" />
     <Compile Include="Common\MyGame.cs" />
+    <Compile Include="Common\Static\Assets.cs" />
+    <Compile Include="Common\Static\Constants.cs" />
+    <Compile Include="Common\Static\Enumerations.cs" />
+    <Compile Include="Common\Static\Globalize.cs" />
+    <Compile Include="Common\Static\Registration.cs" />
     <Compile Include="Common\TheGame\GameFactory.cs" />
     <Compile Include="Common\TheGame\GameManager.cs" />
     <Compile Include="Master\Engine.cs" />

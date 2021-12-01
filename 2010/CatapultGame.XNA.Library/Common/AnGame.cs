@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
-//using WindowsGame.Common.Static;
+using WindowsGame.Common.Static;
 using WindowsGame.Common.TheGame;
 using WindowsGame.Master;
 
@@ -13,7 +13,7 @@ namespace WindowsGame.Common
 		public AnGame()
 		{
 			graphics = new GraphicsDeviceManager(this);
-			//Registration.Initialize();
+			Registration.Initialize();
 
 			var manager = GameFactory.Resolve();
 			MyGame.Construct(manager);

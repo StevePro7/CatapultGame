@@ -37,7 +37,7 @@ namespace WindowsGame.Common.Static
 
 			IoCContainer.Initialize<IJoystickInput, JoystickInput>();
 			IoCContainer.Initialize<IKeyboardInput, KeyboardInput>();
-			//IoCContainer.Initialize<IMouseScreenInput, MouseScreenInput>();
+			IoCContainer.Initialize<IMouseScreenInput, MouseScreenInput>();
 			//IoCContainer.Initialize<ITouchScreenInput, TouchScreenInput>();
 
 			IoCContainer.Initialize<IFileProxy, RealFileProxy>();
@@ -45,7 +45,7 @@ namespace WindowsGame.Common.Static
 
 			IoCContainer.Initialize<IDeviceFactory, WindowsDeviceFactory>();
 			IoCContainer.Initialize<IInputFactory, WindowsInputFactory>();
-			//IoCContainer.Initialize<ILogger, RealLogger>();
+			IoCContainer.Initialize<ILogger, RealLogger>();
 		}
 	}
 }

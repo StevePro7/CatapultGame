@@ -91,7 +91,7 @@ namespace WindowsGame.Common.Managers
 
 		private static void DrawSprite(SpriteType spriteType, Vector2 position)
 		{
-			MyGame.Manager.ImageManager.DrawSprite(spriteType, position);
+			//MyGame.Manager.ImageManager.DrawSprite(spriteType, position);
 		}
 
 		private Vector2[] GetPositionsAnswer()

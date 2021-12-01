@@ -12,13 +12,13 @@ namespace WindowsGame.Common.Managers
 
 		Boolean Escape();
 		Boolean Advance();
-		Boolean FullScreen();
-		OptionType GetOptionType();
-		Boolean LeftArrow();
-		Boolean RghtArrow();
-		Boolean VolumeIcon();
-		Boolean CheatMode();
-		Boolean Character();
+		//Boolean FullScreen();
+		//OptionType GetOptionType();
+		//Boolean LeftArrow();
+		//Boolean RghtArrow();
+		//Boolean VolumeIcon();
+		//Boolean CheatMode();
+		//Boolean Character();
 	}
 
 	public class InputManager : IInputManager
@@ -50,39 +50,39 @@ namespace WindowsGame.Common.Managers
 			return inputFactory.Advance();
 		}
 
-		public Boolean FullScreen()
-		{
-			return inputFactory.FullScreen();
-		}
+		//public Boolean FullScreen()
+		//{
+		//    return inputFactory.FullScreen();
+		//}
 
-		public OptionType GetOptionType()
-		{
-			return inputFactory.GetOptionType();
-		}
+		//public OptionType GetOptionType()
+		//{
+		//    return inputFactory.GetOptionType();
+		//}
 
-		public Boolean LeftArrow()
-		{
-			return inputFactory.LeftArrow();
-		}
-		public Boolean RghtArrow()
-		{
-			return inputFactory.RghtArrow();
-		}
+		//public Boolean LeftArrow()
+		//{
+		//    return inputFactory.LeftArrow();
+		//}
+		//public Boolean RghtArrow()
+		//{
+		//    return inputFactory.RghtArrow();
+		//}
 
-		public Boolean VolumeIcon()
-		{
-			return inputFactory.VolumeIcon();
-		}
+		//public Boolean VolumeIcon()
+		//{
+		//    return inputFactory.VolumeIcon();
+		//}
 
-		public Boolean CheatMode()
-		{
-			return inputFactory.CheatMode();
-		}
+		//public Boolean CheatMode()
+		//{
+		//    return inputFactory.CheatMode();
+		//}
 
-		public Boolean Character()
-		{
-			return inputFactory.Character();
-		}
+		//public Boolean Character()
+		//{
+		//    return inputFactory.Character();
+		//}
 
 	}
 }

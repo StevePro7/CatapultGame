@@ -76,17 +76,17 @@ namespace WindowsGame.Common.Managers
 			return new Dictionary<ScreenType, IScreen>
 			{
 				{ScreenType.Splash, new SplashScreen()},
-				{ScreenType.Init, new InitScreen()},
-				{ScreenType.Title, new TitleScreen()},
-				{ScreenType.Diff, new DiffScreen()},
-				{ScreenType.Long, new LongScreen()},
-				{ScreenType.Ready, new ReadyScreen()},
-				{ScreenType.Play, new PlayScreen()},
-				{ScreenType.Quiz, new QuizScreen()},
-				{ScreenType.Score, new ScoreScreen()},
-				{ScreenType.Over, new OverScreen()},
-				{ScreenType.Exit, new ExitScreen()},
-				{ScreenType.Test, new TestScreen()},
+				//{ScreenType.Init, new InitScreen()},
+				//{ScreenType.Title, new TitleScreen()},
+				//{ScreenType.Diff, new DiffScreen()},
+				//{ScreenType.Long, new LongScreen()},
+				//{ScreenType.Ready, new ReadyScreen()},
+				//{ScreenType.Play, new PlayScreen()},
+				//{ScreenType.Quiz, new QuizScreen()},
+				//{ScreenType.Score, new ScoreScreen()},
+				//{ScreenType.Over, new OverScreen()},
+				//{ScreenType.Exit, new ExitScreen()},
+				//{ScreenType.Test, new TestScreen()},
 			};
 		}
 

@@ -8,7 +8,7 @@
 	<DotsDelay>1000</DotsDelay>
 	<OverDelay>3000</OverDelay>
 	<PlayDelay>15000</PlayDelay>
-	<BlankSplash>false</BlankSplash>
+	<BlankSplash>true</BlankSplash>
 	<FlashTitle>true</FlashTitle>
 	<PlayMusic>true</PlayMusic>
 	<PlaySound>true</PlaySound>

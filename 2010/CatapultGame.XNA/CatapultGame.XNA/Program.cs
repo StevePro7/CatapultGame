@@ -2,7 +2,6 @@ using WindowsGame.Common;
 
 namespace WindowsGame
 {
-#if WINDOWS || XBOX
 	static class Program
 	{
 		/// <summary>
@@ -16,6 +15,4 @@ namespace WindowsGame
 			}
 		}
 	}
-#endif
 }
-

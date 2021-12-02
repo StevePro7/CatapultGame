@@ -47,7 +47,7 @@ namespace WindowsGame.Common.Managers
 			Assets.backgroundTexture = LoadTexture("ground");
 			Assets.endObjectTexture = LoadTexture("log");
 			Assets.pumpkinTexture = LoadTexture("pumpkin");
-			Assets.pumpkinsmashTexture = LoadTexture("pumpkinsmash");
+			Assets.pumpkinSmashTexture = LoadTexture("pumpkinsmash");
 			Assets.skyTexture = LoadTexture("sky");
 
 			// Songs.

@@ -46,8 +46,8 @@ namespace WindowsGame.Common.Objects
 
 		public void Draw()
 		{
-			var state = MyGame.Manager.StateManager.CatapultState;
-			if (CatapultState.Crash == state)
+			var currentState = MyGame.Manager.StateManager.CatapultState;
+			if (currentState == CatapultState.Crash)
 			{
 				Engine.SpriteBatch.Draw(Assets.baseTextureBack, basePosition, null,
 					Color.White, MathHelper.ToRadians(-5),
@@ -63,6 +63,23 @@ namespace WindowsGame.Common.Objects
 				Engine.SpriteBatch.Draw(Assets.armTexture, basePosition + armOffset, null,
 				   Color.White, armRotation, armCenter, 1.0f, SpriteEffects.None, 0.0f);
 				Engine.SpriteBatch.Draw(Assets.baseTexture, basePosition, Color.White);
+			}
+
+			if (currentState != CatapultState.ProjectileHit &&
+			    currentState != CatapultState.Crash)
+			{
+				Engine.SpriteBatch.Draw(Assets.pumpkinTexture,
+					new Vector2(pumpkinLaunchPosition, pumpkinPosition.Y),
+					null, Color.White, pumpkinRotation,
+					new Vector2(32, 32), 1.0f, SpriteEffects.None, 0.0f);
+			}
+			else
+			{
+
+				Engine.SpriteBatch.Draw(Assets.pumpkinSmashTexture,
+					new Vector2(pumpkinLaunchPosition, pumpkinPosition.Y),
+					null, Color.White, 0,
+					new Vector2(50, 32), 1.0f, SpriteEffects.None, 0.0f);
 			}
 		}
 

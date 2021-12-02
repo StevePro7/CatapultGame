@@ -17,7 +17,7 @@ namespace WindowsGame.Common.Static
 		public static Texture2D backgroundTexture;
 		public static Texture2D endObjectTexture;
 		public static Texture2D pumpkinTexture;
-		public static Texture2D pumpkinsmashTexture;
+		public static Texture2D pumpkinSmashTexture;
 		public static Texture2D skyTexture;
 		public static Texture2D SplashTexture;
 		//public static Texture2D SpritesheetTexture;

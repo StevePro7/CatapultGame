@@ -14,8 +14,8 @@ namespace WindowsGame.Common.Managers
 		Boolean Advance();
 		//Boolean FullScreen();
 		//OptionType GetOptionType();
-		//Boolean LeftArrow();
-		//Boolean RghtArrow();
+		Boolean LeftArrow();
+		Boolean RghtArrow();
 		//Boolean VolumeIcon();
 		//Boolean CheatMode();
 		//Boolean Character();
@@ -60,14 +60,14 @@ namespace WindowsGame.Common.Managers
 		//    return inputFactory.GetOptionType();
 		//}
 
-		//public Boolean LeftArrow()
-		//{
-		//    return inputFactory.LeftArrow();
-		//}
-		//public Boolean RghtArrow()
-		//{
-		//    return inputFactory.RghtArrow();
-		//}
+		public Boolean LeftArrow()
+		{
+			return inputFactory.LeftArrow();
+		}
+		public Boolean RghtArrow()
+		{
+			return inputFactory.RghtArrow();
+		}
 
 		//public Boolean VolumeIcon()
 		//{

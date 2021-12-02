@@ -38,5 +38,35 @@ namespace WindowsGame.Common.Inputs
 			return KeyboardInput.KeyHold(Keys.Space);
 		}
 
+		public Boolean LeftArrow()
+		{
+			//if (MouseScreenInput.ButtonHold())
+			//{
+			//    return MyGame.Manager.CollisionManager.LeftArrow(MouseScreenInput.CurrMouseX, MouseScreenInput.CurrMouseY);
+			//}
+
+			if (KeyboardInput.KeyPress(Keys.Left))
+			{
+				return true;
+			}
+
+			return false;
+		}
+
+		public Boolean RghtArrow()
+		{
+			//if (MouseScreenInput.ButtonHold())
+			//{
+			//    return MyGame.Manager.CollisionManager.RghtArrow(MouseScreenInput.CurrMouseX, MouseScreenInput.CurrMouseY);
+			//}
+
+			if (KeyboardInput.KeyHold(Keys.Right))
+			{
+				return true;
+			}
+
+			return false;
+		}
+
 	}
 }

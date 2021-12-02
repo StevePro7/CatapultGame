@@ -27,6 +27,17 @@ namespace WindowsGame.Common.Screens
 
 		public ScreenType Update(GameTime gameTime)
 		{
+			Boolean left = MyGame.Manager.InputManager.LeftArrow();
+			if (left)
+			{
+				MyGame.Manager.StateManager.SetState(CatapultState.Crash);
+			}
+			else
+			{
+				MyGame.Manager.StateManager.SetState(CatapultState.Rolling);
+			}
+
+			MyGame.Manager.SpriteManager.Update(gameTime);
 			return ScreenType.Test;
 		}
 

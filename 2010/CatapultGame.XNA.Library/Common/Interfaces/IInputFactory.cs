@@ -11,5 +11,7 @@ namespace WindowsGame.Common.Interfaces
 
 		Boolean Escape();
 		Boolean Advance();
+		Boolean LeftArrow();
+		Boolean RghtArrow();
 	}
 }

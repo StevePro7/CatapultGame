@@ -39,6 +39,11 @@ namespace WindowsGame.Common.Objects
 			ResetCatapult();
 		}
 
+		public void Update(GameTime gameTime)
+		{
+			
+		}
+
 		public void Draw()
 		{
 			var state = MyGame.Manager.StateManager.CatapultState;

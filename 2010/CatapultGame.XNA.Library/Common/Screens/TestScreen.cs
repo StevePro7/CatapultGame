@@ -48,7 +48,8 @@ namespace WindowsGame.Common.Screens
 
 			// Start Drawing
 			//spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
-			Engine.SpriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+			//Engine.SpriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+			Engine.SpriteBatch.Begin();
 			
 
 			// Draw the sky

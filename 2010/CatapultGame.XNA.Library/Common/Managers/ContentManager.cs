@@ -42,8 +42,8 @@ namespace WindowsGame.Common.Managers
 
 			// Textures.
 			Assets.armTexture = LoadTexture("arm");
-			Assets.body_backTexture = LoadTexture("body_back");
-			Assets.body_frontTexture = LoadTexture("body_front");
+			Assets.baseTextureBack = LoadTexture("body_back");
+			Assets.baseTexture = LoadTexture("body_front");
 			Assets.backgroundTexture = LoadTexture("ground");
 			Assets.endObjectTexture = LoadTexture("log");
 			Assets.pumpkinTexture = LoadTexture("pumpkin");

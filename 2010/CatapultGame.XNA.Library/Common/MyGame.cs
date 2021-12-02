@@ -36,6 +36,7 @@ namespace WindowsGame.Common
 			Manager.SoundManager.Initialize();
 			Manager.SpriteManager.Initialize();
 			Manager.StorageManager.Initialize();
+			Manager.StateManager.Initialize();
 
 			Manager.TextManager.Initialize();
 			//Manager.ThreadManager.Initialize();

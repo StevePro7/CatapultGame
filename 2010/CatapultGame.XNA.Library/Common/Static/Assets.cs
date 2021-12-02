@@ -12,8 +12,8 @@ namespace WindowsGame.Common.Static
 
 		// Textures.
 		public static Texture2D armTexture;
-		public static Texture2D body_backTexture;
-		public static Texture2D body_frontTexture;
+		public static Texture2D baseTextureBack;
+		public static Texture2D baseTexture;
 		public static Texture2D backgroundTexture;
 		public static Texture2D endObjectTexture;
 		public static Texture2D pumpkinTexture;

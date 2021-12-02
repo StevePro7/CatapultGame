@@ -1,5 +1,7 @@
 ﻿using System;
 using WindowsGame.Common.Objects;
+using WindowsGame.Common.Static;
+using WindowsGame.Master;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame.Common.Managers
@@ -19,11 +21,11 @@ namespace WindowsGame.Common.Managers
 		public void Initialize()
 		{
 			playerCatapult = new Catapult();
+			playerCatapult.Initialize();
 		}
 
 		public void Update(GameTime gameTime)
 		{
-			
 		}
 
 		public void Draw()

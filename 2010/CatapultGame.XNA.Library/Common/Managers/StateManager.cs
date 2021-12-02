@@ -7,6 +7,7 @@ namespace WindowsGame.Common.Managers
 	{
 		void Initialize();
 		void SetState(CatapultState nextState);
+		CatapultState CatapultState { get; }
 	}
 
 	public class StateManager : IStateManager
@@ -22,5 +23,7 @@ namespace WindowsGame.Common.Managers
 		{
 			currentState = nextState;
 		}
+
+		public CatapultState CatapultState { get { return currentState; } }
 	}
 }

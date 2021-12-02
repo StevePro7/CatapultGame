@@ -44,7 +44,13 @@ namespace WindowsGame.Common.Objects
 			var state = MyGame.Manager.StateManager.CatapultState;
 			if (CatapultState.Crash == state)
 			{
-
+				Engine.SpriteBatch.Draw(Assets.baseTextureBack, basePosition, null,
+					Color.White, MathHelper.ToRadians(-5),
+					Vector2.Zero, 1.0f, SpriteEffects.None, 0);
+				Engine.SpriteBatch.Draw(Assets.armTexture, basePosition + armOffset, null,
+				   Color.White, armRotation, armCenter, 1.0f, SpriteEffects.None, 0.0f);
+				Engine.SpriteBatch.Draw(Assets.baseTexture, basePosition, null, Color.White,
+					MathHelper.ToRadians(5), Vector2.Zero, 1.0f, SpriteEffects.None, 0);
 			}
 			else
 			{

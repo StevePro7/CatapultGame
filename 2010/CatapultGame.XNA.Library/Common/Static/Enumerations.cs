@@ -16,6 +16,16 @@
 		Test,
 	}
 
+	public enum CatapultState
+	{
+		Rolling,
+		Firing,
+		Crash,
+		ProjectileFlying,
+		ProjectileHit,
+		Reset
+	}
+
 	public enum DifficultyType
 	{
 		Easy,

@@ -94,14 +94,6 @@ namespace WindowsGame.Common.Managers
 
 		public void DrawVolumeIcon()
 		{
-			if (PlaySound)
-			{
-				MyGame.Manager.SpriteManager.DrawVolumeOn();
-			}
-			else
-			{
-				MyGame.Manager.SpriteManager.DrawVolumeOff();
-			}
 		}
 
 		public void SetPlaySound(Boolean playSound)

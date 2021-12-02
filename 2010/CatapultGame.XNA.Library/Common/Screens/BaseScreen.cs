@@ -54,8 +54,6 @@ namespace WindowsGame.Common.Screens
 		}
 		protected void HideCheatMode()
 		{
-			MyGame.Manager.SpriteManager.DrawWhite(CheatPositions[0]);
-			MyGame.Manager.SpriteManager.DrawWhite(CheatPositions[1]);
 		}
 
 		private void LoadTextData(String screen)

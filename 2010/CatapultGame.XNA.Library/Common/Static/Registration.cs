@@ -31,6 +31,7 @@ namespace WindowsGame.Common.Static
 			IoCContainer.Initialize<IScreenManager, ScreenManager>();
 			IoCContainer.Initialize<ISoundManager, SoundManager>();
 			IoCContainer.Initialize<ISpriteManager, SpriteManager>();
+			IoCContainer.Initialize<IStateManager, StateManager>();
 			IoCContainer.Initialize<IStorageManager, StorageManager>();
 			IoCContainer.Initialize<ITextManager, TextManager>();
 			//IoCContainer.Initialize<IThreadManager, ThreadManager>();

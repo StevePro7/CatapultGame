@@ -90,6 +90,9 @@ namespace WindowsGame.Common.Screens
 			// Draw the log at the end
 			Engine.SpriteBatch.Draw(Assets.endObjectTexture, endObjectPos, Color.White);
 
+			// Draw the Catapult
+			MyGame.Manager.SpriteManager.Draw();
+
 			Engine.SpriteBatch.End();
 		}
 

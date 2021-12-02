@@ -1,4 +1,5 @@
 ﻿using System;
+using WindowsGame.Common.Objects;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame.Common.Managers
@@ -13,8 +14,11 @@ namespace WindowsGame.Common.Managers
 
 	public class SpriteManager : ISpriteManager
 	{
+		private Catapult playerCatapult;
+
 		public void Initialize()
 		{
+			playerCatapult = new Catapult();
 		}
 
 		public void Update(GameTime gameTime)
@@ -24,6 +28,7 @@ namespace WindowsGame.Common.Managers
 
 		public void Draw()
 		{
+			playerCatapult.Draw();
 		}
 		
 	}

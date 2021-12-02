@@ -11,7 +11,11 @@ namespace WindowsGame.Common.Screens
 {
 	public class TestScreen : BaseScreen, IScreen
 	{
+		// Track where the player is viewing
 		Vector2 screenPosition = Vector2.Zero;
+
+		// Position of the object at the end of the rolling area
+		Vector2 endObjectPos = new Vector2(1000, 500);
 
 		public override void Initialize()
 		{
@@ -19,7 +23,6 @@ namespace WindowsGame.Common.Screens
 
 		public override void LoadContent()
 		{
-			//MyGame.Manager.ImageManager.GenerateNextActor();
 		}
 
 		public ScreenType Update(GameTime gameTime)
@@ -72,6 +75,19 @@ namespace WindowsGame.Common.Screens
 				null, Color.White, 0, Vector2.Zero, 1,
 				SpriteEffects.FlipHorizontally, 0);
 
+			// Check to see if we need to draw another background
+			if (backgroundDrawPos.X <= -(Assets.backgroundTexture.Width * 2) + Constants.screenWidth)
+			{
+				backgroundDrawPos.X += Assets.backgroundTexture.Width * 2;
+				Engine.SpriteBatch.Draw(Assets.backgroundTexture, backgroundDrawPos, Color.White);
+				Engine.SpriteBatch.Draw(Assets.backgroundTexture, backgroundDrawPos +
+				new Vector2(Assets.backgroundTexture.Width, 0),
+				null, Color.White, 0, Vector2.Zero, 1,
+				SpriteEffects.FlipHorizontally, 0);
+			}
+
+			// Draw the log at the end
+			Engine.SpriteBatch.Draw(Assets.endObjectTexture, endObjectPos, Color.White);
 
 			Engine.SpriteBatch.End();
 		}

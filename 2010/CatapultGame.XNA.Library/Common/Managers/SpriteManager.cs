@@ -26,6 +26,7 @@ namespace WindowsGame.Common.Managers
 
 		public void Update(GameTime gameTime)
 		{
+			playerCatapult.Update(gameTime);
 		}
 
 		public void Draw()

@@ -37,11 +37,85 @@ namespace WindowsGame.Common.Objects
 		public void Initialize()
 		{
 			ResetCatapult();
+			Fire();
 		}
 
 		public void Update(GameTime gameTime)
 		{
-			
+			int gameTimeElapsedGameTimeMilliseconds = 16;
+
+			// Rotate the arm
+			if (armRotation < MathHelper.ToRadians(81))
+			{
+				//armRotation += MathHelper.ToRadians(gameTime.ElapsedGameTime.Milliseconds);
+				armRotation += MathHelper.ToRadians(gameTimeElapsedGameTimeMilliseconds);
+
+				Matrix matTranslate, matTranslateBack, matRotate, matFinal;
+				matTranslate = Matrix.CreateTranslation((-pumpkinRotationPosition.X)
+							   - 170, -pumpkinRotationPosition.Y, 0);
+				matTranslateBack =
+					Matrix.CreateTranslation(pumpkinRotationPosition.X + 170,
+											 pumpkinRotationPosition.Y, 0);
+				matRotate = Matrix.CreateRotationZ(armRotation);
+				matFinal = matTranslate * matRotate * matTranslateBack;
+
+				Vector2.Transform(ref pumpkinRotationPosition, ref matFinal,
+								  out pumpkinPosition);
+				pumpkinLaunchPosition = pumpkinPosition.X;
+
+				//pumpkinRotation += MathHelper.ToRadians(gameTime.ElapsedGameTime.Milliseconds / 10.0f);
+				pumpkinRotation += MathHelper.ToRadians(gameTimeElapsedGameTimeMilliseconds / 10.0f);
+			}
+		}
+
+		public void UpdateX(GameTime gameTime)
+		{
+			var currentState = MyGame.Manager.StateManager.CatapultState;
+
+			// Do we need to reset
+			if (currentState == CatapultState.Reset)
+				ResetCatapult();
+
+			// Are we currently rolling?
+			if (currentState == CatapultState.Rolling)
+			{
+				// Add to current speed
+				float speedAmt = 1.0f;//curGame.CurrentGamePadState.Triggers.Left;
+				//if (curGame.CurrentKeyboardState.IsKeyDown(Keys.Right))
+					//speedAmt = 1.0f;
+
+				baseSpeed += speedAmt * gameTime.ElapsedGameTime.Milliseconds * 0.001f;
+
+				// Move catapult based on speed
+				basePosition.X += baseSpeed * gameTime.ElapsedGameTime.Milliseconds;
+
+				// Move pumpkin to match catapult
+				pumpkinPosition.X = pumpkinLaunchPosition = basePosition.X + 120;
+				pumpkinPosition.Y = basePosition.Y + 80;
+
+				// Play moving sound
+				//if (playingCue == null && baseSpeed > 0)
+				//{
+				//    playingCue = curGame.SoundBank.GetCue("Move");
+				//    playingCue.Play();
+				//}
+
+				// Check to see if we fire the pumpkin
+				//if ((curGame.CurrentGamePadState.Buttons.A == ButtonState.Pressed &&
+				//    curGame.LastGamePadState.Buttons.A != ButtonState.Pressed) ||
+				//    (curGame.CurrentKeyboardState.IsKeyDown(Keys.Space) &&
+				//    curGame.LastKeyboardState.IsKeyUp(Keys.Space)))
+				//{
+				//    Fire();
+				//    if (playingCue != null && playingCue.IsPlaying)
+				//    {
+				//        playingCue.Stop(AudioStopOptions.Immediate);
+				//        playingCue.Dispose();
+				//        playingCue = curGame.SoundBank.GetCue("Flying");
+				//        playingCue.Play();
+				//    }
+				//}
+			}
 		}
 
 		public void Draw()
@@ -75,7 +149,6 @@ namespace WindowsGame.Common.Objects
 			}
 			else
 			{
-
 				Engine.SpriteBatch.Draw(Assets.pumpkinSmashTexture,
 					new Vector2(pumpkinLaunchPosition, pumpkinPosition.Y),
 					null, Color.White, 0,
@@ -87,6 +160,7 @@ namespace WindowsGame.Common.Objects
 		private void ResetCatapult()
 		{
 			basePosition.X = -100;
+			//basePosition.X = 300;
 			basePosition.Y = 430;
 			baseSpeed = 0;
 

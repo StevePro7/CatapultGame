@@ -16,7 +16,8 @@ namespace WindowsGame.Common.Managers
 
 		public void Initialize()
 		{
-			currentState = CatapultState.Rolling;
+			//currentState = CatapultState.Rolling;
+			currentState = CatapultState.Firing;
 		}
 
 		public void SetState(CatapultState nextState)

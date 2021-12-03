@@ -60,7 +60,8 @@ namespace WindowsGame.Common.Inputs
 			//    return MyGame.Manager.CollisionManager.RghtArrow(MouseScreenInput.CurrMouseX, MouseScreenInput.CurrMouseY);
 			//}
 
-			if (KeyboardInput.KeyHold(Keys.Right))
+			//if (KeyboardInput.KeyHold(Keys.Right))
+			if (KeyboardInput.KeyPress(Keys.Right))
 			{
 				return true;
 			}

@@ -12,6 +12,8 @@ namespace WindowsGame.Common.Managers
 
 		void Update(GameTime gameTime);
 		void Draw();
+
+		Catapult PlayerCatapult { get; }
 	}
 
 	public class SpriteManager : ISpriteManager
@@ -33,6 +35,11 @@ namespace WindowsGame.Common.Managers
 		{
 			playerCatapult.Draw();
 		}
-		
+
+		public Catapult PlayerCatapult
+		{
+			get { return playerCatapult; }
+			private set { playerCatapult = value; }
+		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using WindowsGame.Common.Objects;
 using WindowsGame.Master;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,6 +18,9 @@ namespace WindowsGame.Common.Screens
 		// Position of the object at the end of the rolling area
 		Vector2 endObjectPos = new Vector2(1000, 500);
 
+		// Current distance of the pumpkin
+		float pumpkinDistance;
+
 		public override void Initialize()
 		{
 		}
@@ -27,10 +31,43 @@ namespace WindowsGame.Common.Screens
 
 		public ScreenType Update(GameTime gameTime)
 		{
-			Boolean hold = MyGame.Manager.InputManager.RghtArrow();
-			if (hold)
+			CatapultState currentState = MyGame.Manager.StateManager.CatapultState;
+			Catapult playerCatapult = MyGame.Manager.SpriteManager.PlayerCatapult;
+
+			if (currentState == CatapultState.Firing)
 			{
 				MyGame.Manager.SpriteManager.Update(gameTime);
+			}
+			else
+			{
+				Boolean hold = MyGame.Manager.InputManager.RghtArrow();
+				if (hold)
+				{
+					MyGame.Manager.SpriteManager.Update(gameTime);
+
+					if (currentState == CatapultState.Reset)
+					{
+						// reset background and log
+						screenPosition = Vector2.Zero;
+
+						endObjectPos.X = 1000;
+						endObjectPos.Y = 500;
+					}
+
+					// Move background
+					if (currentState == CatapultState.ProjectileFlying)
+					{
+						screenPosition.X = (playerCatapult.PumpkinPosition.X - playerCatapult.PumpkinLaunchPosition) * -1.0f;
+						endObjectPos.X = (playerCatapult.PumpkinPosition.X - playerCatapult.PumpkinLaunchPosition) * -1.0f + 1000;
+					}
+
+					// Calculate the pumpkin flying distance
+					if (currentState == CatapultState.ProjectileFlying || currentState == CatapultState.ProjectileHit)
+					{
+						pumpkinDistance = playerCatapult.PumpkinPosition.X - playerCatapult.PumpkinLaunchPosition;
+						pumpkinDistance /= 15.0f;
+					}
+				}
 			}
 
 			return ScreenType.Test;
@@ -98,6 +135,10 @@ namespace WindowsGame.Common.Screens
 
 			// Draw the Catapult
 			MyGame.Manager.SpriteManager.Draw();
+
+
+			Engine.SpriteBatch.DrawString(Assets.EmulogicFont, MyGame.Manager.StateManager.CatapultState.ToString(), new Vector2(1000, 20), Color.White);
+			Engine.SpriteBatch.DrawString(Assets.EmulogicFont, pumpkinDistance.ToString(), new Vector2(1000, 70), Color.White);
 
 			Engine.SpriteBatch.End();
 		}

@@ -42,30 +42,122 @@ namespace WindowsGame.Common.Objects
 
 		public void Update(GameTime gameTime)
 		{
-			int gameTimeElapsedGameTimeMilliseconds = 16;
+			const int gameTimeElapsedGameTimeMilliseconds = 16;
 
-			// Rotate the arm
-			if (armRotation < MathHelper.ToRadians(81))
+			CatapultState currentState = MyGame.Manager.StateManager.CatapultState;
+			if (currentState == CatapultState.Rolling)
 			{
-				//armRotation += MathHelper.ToRadians(gameTime.ElapsedGameTime.Milliseconds);
-				armRotation += MathHelper.ToRadians(gameTimeElapsedGameTimeMilliseconds);
-
-				Matrix matTranslate, matTranslateBack, matRotate, matFinal;
-				matTranslate = Matrix.CreateTranslation((-pumpkinRotationPosition.X)
-							   - 170, -pumpkinRotationPosition.Y, 0);
-				matTranslateBack =
-					Matrix.CreateTranslation(pumpkinRotationPosition.X + 170,
-											 pumpkinRotationPosition.Y, 0);
-				matRotate = Matrix.CreateRotationZ(armRotation);
-				matFinal = matTranslate * matRotate * matTranslateBack;
-
-				Vector2.Transform(ref pumpkinRotationPosition, ref matFinal,
-								  out pumpkinPosition);
-				pumpkinLaunchPosition = pumpkinPosition.X;
-
-				//pumpkinRotation += MathHelper.ToRadians(gameTime.ElapsedGameTime.Milliseconds / 10.0f);
-				pumpkinRotation += MathHelper.ToRadians(gameTimeElapsedGameTimeMilliseconds / 10.0f);
 			}
+			// Are we in the firing state
+			else if (currentState == CatapultState.Firing)
+			{
+				// Rotate the arm
+				if (armRotation < MathHelper.ToRadians(81))
+				{
+					//armRotation += MathHelper.ToRadians(gameTime.ElapsedGameTime.Milliseconds);
+					armRotation += MathHelper.ToRadians(gameTimeElapsedGameTimeMilliseconds);
+
+					Matrix matTranslate, matTranslateBack, matRotate, matFinal;
+					matTranslate = Matrix.CreateTranslation((-pumpkinRotationPosition.X)
+								   - 170, -pumpkinRotationPosition.Y, 0);
+					matTranslateBack =
+						Matrix.CreateTranslation(pumpkinRotationPosition.X + 170,
+												 pumpkinRotationPosition.Y, 0);
+					matRotate = Matrix.CreateRotationZ(armRotation);
+					matFinal = matTranslate * matRotate * matTranslateBack;
+
+					Vector2.Transform(ref pumpkinRotationPosition, ref matFinal,
+									  out pumpkinPosition);
+					pumpkinLaunchPosition = pumpkinPosition.X;
+
+					//pumpkinRotation += MathHelper.ToRadians(gameTime.ElapsedGameTime.Milliseconds / 10.0f);
+					pumpkinRotation += MathHelper.ToRadians(gameTimeElapsedGameTimeMilliseconds / 10.0f);
+				}
+				// We are done rotating so send the pumpkin flying
+				else
+				{
+					MyGame.Manager.StateManager.SetState(CatapultState.ProjectileFlying);
+
+					pumpkinVelocity.X = baseSpeed * 2.0f + 1;
+					pumpkinVelocity.Y = -baseSpeed * 0.75f;
+
+					float rightTriggerAmt = 0.5f;
+					rightTriggerAmt *= 2;
+
+					pumpkinVelocity *= 1.0f + rightTriggerAmt;
+
+					// Check for extra boost power
+					if (basePosition.X > 620)
+					{
+						boostPower = 3;
+						pumpkinVelocity *= 2.0f;
+						//curGame.SoundBank.PlayCue("Boost");
+					}
+					else if (basePosition.X > 600)
+					{
+						boostPower = 2;
+						pumpkinVelocity *= 1.6f;
+						//curGame.SoundBank.PlayCue("Boost");
+					}
+					else if (basePosition.X > 580)
+					{
+						boostPower = 1;
+						pumpkinVelocity *= 1.3f;
+						//curGame.SoundBank.PlayCue("Boost");
+					}
+				}
+			}
+			// Pumpkin is in the flying state
+            else if (currentState == CatapultState.ProjectileFlying)
+            {
+				// Update the position of the pumpkin
+				//pumpkinPosition += pumpkinVelocity * gameTime.ElapsedGameTime.Milliseconds;
+				//pumpkinVelocity += pumpkinAcceleration * gameTime.ElapsedGameTime.Milliseconds;
+				pumpkinPosition += pumpkinVelocity * gameTimeElapsedGameTimeMilliseconds;
+				pumpkinVelocity += pumpkinAcceleration * gameTimeElapsedGameTimeMilliseconds;
+
+				// Move the catapult away from the pumpkin
+				//basePosition.X -= pumpkinVelocity.X * gameTime.ElapsedGameTime.Milliseconds;
+				basePosition.X -= pumpkinVelocity.X * gameTimeElapsedGameTimeMilliseconds;
+
+				// Rotate the pumpkin as it flys
+				pumpkinRotation += MathHelper.ToRadians(pumpkinVelocity.X * 3.5f);
+
+				// Is the pumpkin hitting the ground
+				if (pumpkinPosition.Y > 630)
+				{
+					// Stop playing any sounds
+					//if (playingCue != null && playingCue.IsPlaying)
+					//{
+					//    playingCue.Stop(AudioStopOptions.Immediate);
+					//    playingCue.Dispose();
+					//    playingCue = null;
+					//}
+
+					// Play the bounce sound
+					//curGame.SoundBank.PlayCue("Bounce");
+
+					// Move the pumpkin out of the ground and Change the pumkin velocity
+					pumpkinPosition.Y = 630;
+					pumpkinVelocity.Y *= -0.8f;
+					pumpkinVelocity.X *= 0.7f;
+
+					// Stop the pumpkin if the speed is too low
+					if (pumpkinVelocity.X < 0.1f)
+					{
+						CatapultState nextState = CatapultState.ProjectileHit;
+						MyGame.Manager.StateManager.SetState(nextState);
+						//curGame.SoundBank.PlayCue("Hit");
+
+						// TODO - highscore depends on PumpkinDistance which are variables in main game!
+						//if (curGame.HighScore == (int) curGame.PumpkinDistance && curGame.HighScore > 1000)
+						//{
+						//    //curGame.SoundBank.PlayCue("HighScore");
+						//}
+					}
+				}
+            }
+
 		}
 
 		public void UpdateX(GameTime gameTime)

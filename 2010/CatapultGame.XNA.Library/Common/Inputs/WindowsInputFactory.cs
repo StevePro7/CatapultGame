@@ -45,7 +45,8 @@ namespace WindowsGame.Common.Inputs
 			//    return MyGame.Manager.CollisionManager.LeftArrow(MouseScreenInput.CurrMouseX, MouseScreenInput.CurrMouseY);
 			//}
 
-			if (KeyboardInput.KeyPress(Keys.Left))
+			//if (KeyboardInput.KeyPress(Keys.Left))
+			if (KeyboardInput.KeyHold(Keys.Left))
 			{
 				return true;
 			}
@@ -60,8 +61,8 @@ namespace WindowsGame.Common.Inputs
 			//    return MyGame.Manager.CollisionManager.RghtArrow(MouseScreenInput.CurrMouseX, MouseScreenInput.CurrMouseY);
 			//}
 
-			//if (KeyboardInput.KeyHold(Keys.Right))
-			if (KeyboardInput.KeyPress(Keys.Right))
+			//if (KeyboardInput.KeyPress(Keys.Right))
+			if (KeyboardInput.KeyHold(Keys.Right))
 			{
 				return true;
 			}

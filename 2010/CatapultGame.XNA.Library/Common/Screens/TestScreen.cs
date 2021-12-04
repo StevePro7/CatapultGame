@@ -40,8 +40,8 @@ namespace WindowsGame.Common.Screens
 			}
 			else
 			{
-				Boolean hold = MyGame.Manager.InputManager.RghtArrow();
-				if (hold)
+				Boolean right = MyGame.Manager.InputManager.RghtArrow();
+				if (right)
 				{
 					MyGame.Manager.SpriteManager.Update(gameTime);
 
@@ -57,8 +57,8 @@ namespace WindowsGame.Common.Screens
 					// Move background
 					if (currentState == CatapultState.ProjectileFlying)
 					{
-						screenPosition.X = (playerCatapult.PumpkinPosition.X - playerCatapult.PumpkinLaunchPosition) * -1.0f;
-						endObjectPos.X = (playerCatapult.PumpkinPosition.X - playerCatapult.PumpkinLaunchPosition) * -1.0f + 1000;
+						screenPosition.X = (playerCatapult.PumpkinPosition.X - playerCatapult.PumpkinLaunchPosition)*-1.0f;
+						endObjectPos.X = (playerCatapult.PumpkinPosition.X - playerCatapult.PumpkinLaunchPosition)*-1.0f + 1000;
 					}
 
 					// Calculate the pumpkin flying distance
@@ -66,6 +66,37 @@ namespace WindowsGame.Common.Screens
 					{
 						pumpkinDistance = playerCatapult.PumpkinPosition.X - playerCatapult.PumpkinLaunchPosition;
 						pumpkinDistance /= 15.0f;
+					}
+				}
+				else
+				{
+					Boolean left = MyGame.Manager.InputManager.LeftArrow();
+					if (left)
+					{
+						MyGame.Manager.SpriteManager.UpdateLeft(gameTime);
+
+						//if (currentState == CatapultState.Reset)
+						//{
+						//    // reset background and log
+						//    screenPosition = Vector2.Zero;
+
+						//    endObjectPos.X = 1000;
+						//    endObjectPos.Y = 500;
+						//}
+
+						// Move background
+						//if (currentState == CatapultState.ProjectileFlying)
+						//{
+						//    endObjectPos.X = (playerCatapult.PumpkinPosition.X - playerCatapult.PumpkinLaunchPosition) * 1.0f - 1000;
+						//    screenPosition.X = (playerCatapult.PumpkinPosition.X - playerCatapult.PumpkinLaunchPosition) * 1.0f;
+						//}
+
+						//// Calculate the pumpkin flying distance
+						//if (currentState == CatapultState.ProjectileFlying || currentState == CatapultState.ProjectileHit)
+						//{
+						//    pumpkinDistance = playerCatapult.PumpkinPosition.X + playerCatapult.PumpkinLaunchPosition;
+						//    pumpkinDistance /= 15.0f;
+						//}
 					}
 				}
 			}

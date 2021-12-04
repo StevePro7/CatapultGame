@@ -40,6 +40,63 @@ namespace WindowsGame.Common.Objects
 			Fire();
 		}
 
+		public void UpdateLeft(GameTime gameTime)
+		{
+			const int gameTimeElapsedGameTimeMilliseconds = 16;
+
+			CatapultState currentState = MyGame.Manager.StateManager.CatapultState;
+			if (currentState == CatapultState.ProjectileFlying)
+			{
+				// Rotate the pumpkin as it flys
+				pumpkinRotation -= MathHelper.ToRadians(pumpkinVelocity.X * 3.5f);
+
+				// Move the catapult away from the pumpkin
+				//basePosition.X -= pumpkinVelocity.X * gameTime.ElapsedGameTime.Milliseconds;
+				basePosition.X += pumpkinVelocity.X * gameTimeElapsedGameTimeMilliseconds;
+
+				// Update the position of the pumpkin
+				//pumpkinVelocity += pumpkinAcceleration * gameTime.ElapsedGameTime.Milliseconds;
+				//pumpkinPosition += pumpkinVelocity * gameTime.ElapsedGameTime.Milliseconds;
+				pumpkinVelocity -= pumpkinAcceleration * gameTimeElapsedGameTimeMilliseconds;
+				pumpkinPosition -= pumpkinVelocity * gameTimeElapsedGameTimeMilliseconds;
+
+
+				// Is the pumpkin hitting the ground
+				if (pumpkinPosition.Y > 630)
+				{
+					// Stop playing any sounds
+					//if (playingCue != null && playingCue.IsPlaying)
+					//{
+					//    playingCue.Stop(AudioStopOptions.Immediate);
+					//    playingCue.Dispose();
+					//    playingCue = null;
+					//}
+
+					// Play the bounce sound
+					//curGame.SoundBank.PlayCue("Bounce");
+
+					// Move the pumpkin out of the ground and Change the pumkin velocity
+					pumpkinPosition.Y = 630;
+					pumpkinVelocity.Y *= -0.8f;
+					pumpkinVelocity.X *= 0.7f;
+
+					// Stop the pumpkin if the speed is too low
+					//if (pumpkinVelocity.X < 0.1f)
+					//{
+					//    CatapultState nextState = CatapultState.ProjectileHit;
+					//    MyGame.Manager.StateManager.SetState(nextState);
+					//    //curGame.SoundBank.PlayCue("Hit");
+
+					//    // TODO - highscore depends on PumpkinDistance which are variables in main game!
+					//    //if (curGame.HighScore == (int) curGame.PumpkinDistance && curGame.HighScore > 1000)
+					//    //{
+					//    //    //curGame.SoundBank.PlayCue("HighScore");
+					//    //}
+					//}
+				}
+			}
+		}
+
 		public void Update(GameTime gameTime)
 		{
 			const int gameTimeElapsedGameTimeMilliseconds = 16;

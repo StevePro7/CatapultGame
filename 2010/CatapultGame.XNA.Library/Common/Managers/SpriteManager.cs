@@ -11,6 +11,7 @@ namespace WindowsGame.Common.Managers
 		void Initialize();
 
 		void Update(GameTime gameTime);
+		void UpdateLeft(GameTime gameTime);
 		void Draw();
 
 		Catapult PlayerCatapult { get; }
@@ -29,6 +30,10 @@ namespace WindowsGame.Common.Managers
 		public void Update(GameTime gameTime)
 		{
 			playerCatapult.Update(gameTime);
+		}
+		public void UpdateLeft(GameTime gameTime)
+		{
+			playerCatapult.UpdateLeft(gameTime);
 		}
 
 		public void Draw()

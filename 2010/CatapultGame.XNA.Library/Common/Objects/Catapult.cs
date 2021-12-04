@@ -246,6 +246,18 @@ namespace WindowsGame.Common.Objects
 					null, Color.White, 0,
 					new Vector2(50, 32), 1.0f, SpriteEffects.None, 0.0f);
 			}
+
+			// Position.
+			Engine.SpriteBatch.DrawString(Assets.EmulogicFont, pumpkinPosition.X.ToString(), new Vector2(10, 20), Color.White);
+			Engine.SpriteBatch.DrawString(Assets.EmulogicFont, pumpkinPosition.Y.ToString(), new Vector2(10, 70), Color.White);
+
+			// Velocity.
+			Engine.SpriteBatch.DrawString(Assets.EmulogicFont, pumpkinVelocity.X.ToString(), new Vector2(310, 20), Color.White);
+			Engine.SpriteBatch.DrawString(Assets.EmulogicFont, pumpkinVelocity.Y.ToString(), new Vector2(310, 70), Color.White);
+
+			// Acceleration.
+			Engine.SpriteBatch.DrawString(Assets.EmulogicFont, pumpkinAcceleration.X.ToString(), new Vector2(610, 20), Color.White);
+			Engine.SpriteBatch.DrawString(Assets.EmulogicFont, pumpkinAcceleration.Y.ToString(), new Vector2(610, 70), Color.White);
 		}
 
 		// Reset the catapult and pumpkin to default positions

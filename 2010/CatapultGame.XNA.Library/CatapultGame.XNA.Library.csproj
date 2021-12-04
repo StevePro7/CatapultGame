@@ -87,7 +87,6 @@
     <Compile Include="Common\Managers\TextManager.cs" />
     <Compile Include="Common\MyGame.cs" />
     <Compile Include="Common\Objects\Catapult.cs" />
-    <Compile Include="Common\Objects\Question.cs" />
     <Compile Include="Common\Objects\TextData.cs" />
     <Compile Include="Common\Screens\BaseScreen.cs" />
     <Compile Include="Common\Screens\InitScreen.cs" />
